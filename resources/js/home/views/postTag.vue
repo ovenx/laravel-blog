@@ -46,7 +46,7 @@
                     this.loading = false
                     this.pagination.total = parseInt(result.data.total)
                     this.postList = result.data.data
-                    this.TagName = result.TagName
+                    this.tagName = result.tagName
                 });
             }
         },

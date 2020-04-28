@@ -8,7 +8,7 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Archive;
-use App\Helpers\ParsedownToC;
+use App\Helpers\ParsedownToc;
 use App\Services\CategoryService;
 use App\Services\TagService;
 
@@ -54,7 +54,7 @@ class PostController extends Controller
             return array('code' => -1, 'msg' => 'Please Select Category And Tags');
         }
 
-        $parsedown = new ParsedownToC();
+        $parsedown = new ParsedownToc();
         $parsedown->toc([
             'selector' => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
             'inline' => false,
@@ -109,7 +109,7 @@ class PostController extends Controller
             return array('code' => -1, 'msg' => 'Please Select Category And Tags');
         }
 
-        $parsedown = new ParsedownToC();
+        $parsedown = new ParsedownToc();
         $parsedown->toc([
             'selector' => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
             'inline' => false,

@@ -1,9 +1,6 @@
 /node_modules
 /public/hot
 /public/storage
-
-/public/group-index.js.LICENSE.txt
-/public/mix-manifest.json
 /storage/*.key
 /vendor
 .env

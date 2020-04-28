@@ -111,5 +111,9 @@
         background: #eee;
         padding: 20px;
     }
+    .article-content code{
+        background: #eee;
+        padding: .2rem .3rem;
+    }
 
 </style>

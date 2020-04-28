@@ -4,7 +4,7 @@
             <a-list :loading="loading" itemLayout="vertical" size="large" :pagination="pagination" :dataSource="postList">
                 <a-list-item slot="renderItem" slot-scope="item, index" key="item.title">
                     <span slot="extra">
-                        <router-link :to="`/posts/`+item.id">#{{item.category_name}}</router-link> <a-divider type="vertical" /> {{ item.created_time }}
+                        <router-link :to="`/categories/`+item.category">#{{item.category_name}}</router-link> <a-divider type="vertical" /> {{ item.created_time }}
                     </span>
                     <router-link :to="`/posts/`+item.id">{{item.title}}</router-link>
                 </a-list-item>

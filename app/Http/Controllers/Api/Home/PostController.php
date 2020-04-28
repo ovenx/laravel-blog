@@ -70,7 +70,7 @@ class PostController extends Controller
             $page_num = 10;
         }
         $tagId = $request->id;
-        $list = Post::whereRaw('CONCAT(tags,",") like "%'.$tagId.',%"')->orderBy('created_at', 'desc')->paginate($page_num);
+        $list = Post::whereRaw('CONCAT(",",tags,",") like "%,'.$tagId.',%"')->orderBy('created_at', 'desc')->paginate($page_num);
         foreach($list->items() as $v){
             $v->created_date = $v->created_at->format('Y-m-d');
         }

@@ -33,6 +33,7 @@ class PostController extends Controller
         $list = Post::orderBy('id', 'desc')->paginate($page_num);
         foreach($list->items() as $v){
             $v->tags = explode(',', $v->tags);
+            $v->created_date = $v->created_at->format('Y-m-d H:i:s');
         }
         return array('code' => 1, 'data' => $list, 'categoryList' => $categoryList, 'tagList' => $tagList);
     }

@@ -16,7 +16,6 @@ request.interceptors.request.use(
         }
         config.headers['X-Requested-With'] = 'XMLHttpRequest'
         config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
-        config.headers['Authorization'] = 'Bearer ' + getToken()
         config.transformRequest = [function(data) {
             let ret = ''
             for (const it in data) {

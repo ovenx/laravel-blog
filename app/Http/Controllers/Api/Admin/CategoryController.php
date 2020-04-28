@@ -21,6 +21,9 @@ class CategoryController extends Controller
             $page_num = 10;
         }
         $list = Category::orderBy('id', 'desc')->paginate($page_num);
+        foreach($list->items() as $v){
+            $v->created_date = $v->created_at->format('Y-m-d H:i:s');
+        }
         return array('code' => 1, 'data' => $list);
     }
 

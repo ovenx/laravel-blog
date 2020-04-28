@@ -15,13 +15,13 @@
                  @change="handleTableChange"
                  :rowKey="rowKey">
             <template slot="operation" slot-scope="text, record">
+                <a-button type="primary" @click="handleEdit(record)">Edit</a-button>
                 <a-popconfirm
                         title="Sure to delete?"
                         @confirm="() => handleDelete(record.id)"
                 >
                     <a-button type="danger">Delete</a-button>
                 </a-popconfirm>
-                <a-button @click="handleEdit(record)">Edit</a-button>
             </template>
         </a-table>
 
@@ -55,8 +55,8 @@
         },
         {
             title: 'Create Time',
-            dataIndex: 'created_at',
-            key: 'created_at',
+            dataIndex: 'created_date',
+            key: 'created_date',
         },
         {
             title: 'Operation',
@@ -89,7 +89,7 @@
                 currentData: currentData,
                 data: [],
                 rowKey: 'id',
-                pagination: {pageSize: 3, current: 1, total: 0},
+                pagination: {pageSize: 15, current: 1, total: 0},
             }
         },
         beforeCreate() {

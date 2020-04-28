@@ -6,3 +6,24 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.ant-layout {
+    a{
+        color:rgba(0, 0, 0, 0.65);
+        &:hover{
+            color: red;
+        }
+    }
+
+
+}
+
+.ant-list-pagination{
+    .ant-pagination-prev {
+        .ant-pagination-item-link {
+            border-radius: 0px !important;
+        }
+
+    }
+}
+

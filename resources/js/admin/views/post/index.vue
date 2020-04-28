@@ -25,14 +25,13 @@
                 </a-tag>
             </template>
             <template slot="operation" slot-scope="text, record">
+                <router-link :to="{ name: 'editPost', params: { id: record.id}}"><a-button type="primary">Edit</a-button></router-link>
                 <a-popconfirm
                         title="Sure to delete?"
                         @confirm="() => handleDelete(record.id)"
                 >
                     <a-button type="danger">Delete</a-button>
                 </a-popconfirm>
-
-                <router-link :to="{ name: 'editPost', params: { id: record.id}}"><a-button>Edit</a-button></router-link>
             </template>
         </a-table>
     </div>
@@ -61,8 +60,8 @@
         },
         {
             title: 'CreateTime',
-            dataIndex: 'created_at',
-            key: 'created_at',
+            dataIndex: 'created_date',
+            key: 'created_date',
         },
         {
             title: 'Operation',
@@ -91,7 +90,7 @@
                 rowKey: 'id',
                 categoryList: [],
                 tagList: [],
-                pagination: {pageSize: 3, current: 1, total: 0},
+                pagination: {pageSize: 15, current: 1, total: 0},
             }
         },
         created() {
@@ -100,7 +99,7 @@
         methods: {
             getList() {
                 this.loading = true
-                request.get('/posts').then(result => {
+                request.get('/posts', {params: {page: this.pagination.current, page_num: this.pagination.pageSize}}).then(result => {
                     this.loading = false
                     const data = result.data
                     this.pagination.total = parseInt(data.total)

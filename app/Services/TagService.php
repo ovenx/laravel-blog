@@ -6,11 +6,13 @@ use App\Models\Tag;
 
 class TagService
 {
-    public function getFormatList()
+    public function getFormatList($data =  [])
     {
-        $temp = Tag::all();
+        if (!$data) {
+            $data = Tag::all();
+        }
         $tagList = array();
-        foreach ($temp as $val) {
+        foreach ($data as $val) {
             $tagList[$val->id] = $val->name;
         }
         return $tagList;

@@ -19,6 +19,66 @@ export const constantRoutes = [
             }
         ],
         hidden: true
+    },
+    {
+        path: '/posts/:id',
+        component: Layout,
+        children: [
+            {
+                path: '',
+                component: () => import(/* webpackChunkName: "group-index" */ './views/post'),
+                name: 'post',
+                meta: {title: 'post'}
+            }
+        ],
+    },
+    {
+        path: '/categories',
+        component: Layout,
+        children: [
+            {
+                path: '',
+                component: () => import(/* webpackChunkName: "group-index" */ './views/categories'),
+                name: 'categories',
+                meta: {title: 'categories'}
+            },
+            {
+                path: ':id',
+                component: () => import(/* webpackChunkName: "group-index" */ './views/postCategory'),
+                name: 'postCategory',
+                meta: {title: 'category posts'}
+            }
+        ],
+    },
+    {
+        path: '/tags',
+        component: Layout,
+        children: [
+            {
+                path: '',
+                component: () => import(/* webpackChunkName: "group-index" */ './views/tags'),
+                name: 'tags',
+                meta: {title: 'tags'}
+            },
+            {
+                path: ':id',
+                component: () => import(/* webpackChunkName: "group-index" */ './views/postTag'),
+                name: 'postTag',
+                meta: {title: 'tag posts'}
+            }
+        ],
+    },
+    {
+        path: '/archives',
+        component: Layout,
+        children: [
+            {
+                path: '',
+                component: () => import(/* webpackChunkName: "group-index" */ './views/archives'),
+                name: 'archives',
+                meta: {title: 'archives'}
+            }
+        ],
     }
 ]
 

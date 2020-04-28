@@ -36,4 +36,17 @@ Route::namespace('Api')->group(function () {
         Route::put('tags/{id}', 'TagController@edit');
         Route::delete('tags/{id}', 'TagController@delete');
     });
+
+    Route::prefix('home')->namespace('Home')->group(function () {
+        Route::get('posts', 'PostController@lists');
+        Route::get('posts/{id}', 'PostController@info');
+
+        Route::get('categories', 'CategoryController@lists');
+        Route::get('categories/{id}', 'PostController@listsByCategory');
+
+        Route::get('tags', 'TagController@lists');
+        Route::get('tags/{id}', 'PostController@listsByTag');
+
+        Route::get('archives', 'PostController@listsByArchive');
+    });
 });
